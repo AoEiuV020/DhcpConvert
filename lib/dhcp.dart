@@ -7,12 +7,12 @@ abstract class Config {
   StreamTransformer<String, DhcpItem> get transform =>
       DhcpStreamTransformer(this);
 
-  Stream<DhcpItem> convertStream(Stream<String> input) {
+  Stream<DhcpItem> convertString(Stream<String> input) {
     return input.transform(transform);
   }
 
   Stream<DhcpItem> convert(Stream<List<int>> input) {
-    return convertStream(
+    return convertString(
         input.transform(utf8.decoder).transform(LineSplitter()));
   }
 
@@ -53,11 +53,12 @@ class DhcpItem {
   final String mac;
   final String gateway;
 
-  DhcpItem(
-      {this.name = "",
-      required this.ip,
-      required this.mac,
-      required this.gateway});
+  DhcpItem({
+    this.name = "",
+    required this.ip,
+    required this.mac,
+    this.gateway = "",
+  });
 
   factory DhcpItem.fromJson(Map<String, dynamic> json) {
     return DhcpItem(
