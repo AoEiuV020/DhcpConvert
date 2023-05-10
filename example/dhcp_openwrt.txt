@@ -1,0 +1,220 @@
+config dnsmasq
+	option domainneeded '1'
+	option localise_queries '1'
+	option local '/lan/'
+	option domain 'lan'
+	option expandhosts '1'
+	option authoritative '1'
+	option readethers '1'
+	option leasefile '/tmp/dhcp.leases'
+	option ednspacket_max '1232'
+	option port '53'
+	option dns_redirect '1'
+	option allservers '1'
+	option min_ttl '3600'
+	option dnsforwardmax '8192'
+	option localservice '0'
+	option rebind_protection '0'
+	option localuse '1'
+	list server '127.0.0.1#7874'
+	option noresolv '1'
+
+config dhcp 'lan'
+	option interface 'lan'
+	option start '100'
+	option limit '150'
+	option leasetime '12h'
+	option dhcpv4 'server'
+	option ra_slaac '1'
+	list ra_flags 'managed-config'
+	list ra_flags 'other-config'
+	option force '1'
+	option ndp 'hybrid'
+	option ignore '1'
+
+config dhcp 'wan'
+	option interface 'wan'
+	option ignore '1'
+	option start '100'
+	option limit '150'
+	option leasetime '12h'
+
+config odhcpd 'odhcpd'
+	option maindhcp '0'
+	option leasefile '/tmp/hosts/odhcpd'
+	option leasetrigger '/usr/sbin/odhcpd-update'
+	option loglevel '4'
+
+config host
+	option ip '10.0.0.19'
+	option mac 'XX:XX:XX:XX:7E:7D'
+	option name 'rm2100'
+	option dns '1'
+
+config host
+	option ip '10.0.0.110'
+	option mac 'XX:XX:XX:XX:9A:10'
+	option name 'b360m'
+	option dns '1'
+
+config host
+	option ip '10.0.0.112'
+	option mac 'XX:XX:XX:XX:09:63'
+	option name 'iphone11'
+	option dns '1'
+
+config host
+	option ip '10.0.0.113'
+	option mac 'XX:XX:XX:XX:f2:ca'
+	option name 'rmk30u'
+	option dns '1'
+
+config host
+	option ip '10.0.0.111'
+	option mac 'XX:XX:XX:XX:78:7B'
+	option name '9560ac'
+	option dns '1'
+
+config host
+	option ip '10.0.0.114'
+	option mac 'XX:XX:XX:XX:37:76'
+	option name 'z17mini'
+	option dns '1'
+
+config host
+	option ip '10.0.0.119'
+	option mac 'XX:XX:XX:XX:3F:1D'
+	option dns '1'
+	option name 'ps5wifi'
+
+config host
+	option ip '10.0.0.115'
+	option mac 'XX:XX:XX:XX:F8:2B'
+	option name 'ns'
+	option dns '1'
+
+config host
+	option ip '10.0.0.117'
+	option mac 'XX:XX:XX:XX:B8:13'
+	option name 'hk1box'
+	option dns '1'
+
+config host
+	option ip '10.0.0.120'
+	option mac 'XX:XX:XX:XX:63:A0'
+	option name 'gtkingpro'
+	option dns '1'
+
+config host
+	option ip '10.0.0.122'
+	option name 'nas'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:E0:C4'
+
+config host
+	option name 'vwin'
+	option dns '1'
+	option ip '10.0.0.123'
+	option mac 'XX:XX:XX:XX:9C:C7'
+
+config host
+	option name 'b360m'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:9A:10'
+	option ip '10.0.0.124'
+
+config host
+	option name 'vmac'
+	option dns '1'
+	option ip '10.0.0.125'
+	option mac 'XX:XX:XX:XX:A1:DE'
+
+config host
+	option name 'mix4'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:14:14'
+	option ip '10.0.0.126'
+
+config host
+	option dns '1'
+	option mac 'XX:XX:XX:XX:F1:9C'
+	option ip '10.0.0.127'
+	option name 'note7'
+
+config host
+	option dns '1'
+	option ip '10.0.0.128'
+	option name 'vandroid'
+	option mac 'XX:XX:XX:XX:E3:1F'
+
+config host
+	option name 'ctf'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:73:E8'
+	option ip '10.0.0.129'
+
+config host
+	option name 'h4pro'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:31:CB'
+	option ip '10.0.0.130'
+
+config domain
+	option name 'pve.aoeiuv020.com'
+	option ip '10.0.0.121'
+
+config host
+	option name 'vlinux'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:EB:FB'
+	option ip '10.0.0.131'
+
+config host
+	option name 'vxfce'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:65:FB'
+	option ip '10.0.0.132'
+
+config host
+	option name 'vchrome'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:23:28'
+	option ip '10.0.0.133'
+
+config host
+	option name 'vdebian'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:FA:BB'
+	option ip '10.0.0.134'
+
+config host
+	option name 'mi12sp'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:0F:C1'
+	option ip '10.0.0.135'
+
+config host
+	option name 'ps5lan'
+	option dns '1'
+	option mac 'XX:XX:XX:XX:3D:59'
+	option ip '10.0.0.136'
+
+config srvhost
+	option srv '_vlmcs._tcp'
+	option target 'OpenWrt'
+	option port '1688'
+	option class '0'
+	option weight '100'
+
+config host
+	option mac 'XX:XX:XX:XX:3B:24'
+	option name 'z9pro'
+	option dns '1'
+	option ip '10.0.0.137'
+
+config host
+	option mac 'XX:XX:XX:XX:09:F5'
+	option name 'ikuai'
+	option dns '1'
+	option ip '10.0.0.138'
+
