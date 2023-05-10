@@ -1,5 +1,16 @@
-import 'package:dhcp_convert/dhcp_convert.dart' as dhcp_convert;
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:dhcp_convert/dhcp.dart';
+import 'package:dhcp_convert/openwrt.dart';
 
 void main(List<String> arguments) {
-  print('Hello world: ${dhcp_convert.calculate()}!');
+  var file = File("example/dhcp_openwrt.txt");
+  print('read: ${file.absolute}!');
+  Config dhcp = Openwrt();
+  print('type: ${dhcp.name}');
+  var result = dhcp.convert(file.openRead());
+  result.forEach((element) {
+    print(json.encode(element.toJson()));
+  });
 }
