@@ -36,7 +36,7 @@ class DhcpStreamTransformer extends Converter<String, DhcpItem> {
   }
 }
 
-abstract class DhcpSink extends Sink<String> {
+abstract class DhcpSink implements Sink<String> {
   DhcpSink(this.sink);
 
   final Sink<DhcpItem> sink;
