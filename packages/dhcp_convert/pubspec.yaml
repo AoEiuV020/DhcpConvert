@@ -1,0 +1,15 @@
+name: dhcp_convert
+description: DHCP configuration file conversion between different routers.
+version: 0.0.1
+repository: https://github.com/AoEiuV020/DhcpConvert/tree/main/packages/dhcp_convert
+issue_tracker: https://github.com/AoEiuV020/DhcpConvert/issues
+
+environment:
+  sdk: ^3.3.3
+
+dependencies:
+  json5: ^0.8.0
+
+dev_dependencies:
+  lints: ^4.0.0
+  test: ^1.21.0

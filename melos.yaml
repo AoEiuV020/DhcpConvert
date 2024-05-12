@@ -1,0 +1,32 @@
+name: diary_uploader
+repository: https://github.com/AoEiuV020/DiaryUploader
+
+packages:
+  - apps/**
+  - packages/*
+
+scripts:
+  outdated:
+    exec: dart pub outdated
+  upgrade:
+    exec: dart pub upgrade
+  gen:
+    exec: dart run build_runner build --delete-conflicting-outputs
+    packageFilters:
+      dependsOn: build_runner
+  doc:
+    exec: dart doc .
+    packageFilters:
+      ignore: '*example*'
+  analyze:
+    exec: dart analyze .
+  fix:
+    exec: dart fix --apply
+  format:
+    exec: dart format .
+  test:
+    run: flutter test --no-pub --coverage
+    exec:
+      concurrency: 1
+    packageFilters:
+      dirExists: test

@@ -1,7 +1,6 @@
 import 'dart:io';
 
-import 'package:dhcp_convert/dhcp.dart';
-import 'package:dhcp_convert/openwrt.dart';
+import 'package:dhcp_convert/dhcp_convert.dart';
 import 'package:json5/json5.dart';
 
 Future<void> main(List<String> arguments) async {
